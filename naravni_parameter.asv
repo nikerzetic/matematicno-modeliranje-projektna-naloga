@@ -6,10 +6,7 @@ function s = naravni_parameter(b,m)
 % 
 %   Za izracun dolzine Bezierjeve krivulje NARAVNI_PARAMETER uporablja
 %   funkcijo dolzinaBezier na parametrih b in 10*m. Tocke naravne
-%   parametrizacije NARAVNI_PARAMETER izracuna tako, da poisce minimum
-%   razlike med iskano oddaljenostjo tocke od izhodisca in vrednostjo
-%   dolzinaBezier na parametrih b in m, s spremenljivko t. Za to uporablja
-%   funkcijo fminsearch.
+%   parametrizacije NARAVNI_PARAMETER izracuna tako
 % 
 %   See also DOLZINABEZIER
 
@@ -20,8 +17,8 @@ s = zeros(m,1);
 
 for i = 2:(m-1)
     
-    f = @(t) abs((i-1)*d - dolzinaBezier(b,m,t)); % m v vlogi N
-    s(i) = fminsearch(f,1);
+    f = @(t) (i-1)*d - dolzinaBezier(b,m,t);
+    s(i) = fzero(f,1);
     
 end
 
