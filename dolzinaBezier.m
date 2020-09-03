@@ -5,12 +5,11 @@ function L = dolzinaBezier(b,N,t0)
 %   tockah in vrne razdaljo med njimi. Funkcija izracuna dolzino do tocke
 %   t0. Ce ni podana, izracuna dolzino celotne krivulje.
 
-switch nargin
-    case 3
-        p = [b(:,1) zeros(2,N-2) deCasteljau(b,t0)];
-    case 2
-        t0 = 1;
-        p = [b(:,1) zeros(2,N-2) b(:,end)];
+if nargin == 3
+    p = [b(:,1) zeros(2,N-2) deCasteljau(b,t0)];
+elseif nargin < 3
+    t0 = 1;
+    p = [b(:,1) zeros(2,N-2) b(:,end)];
 end
 
 t = 0:(t0/(N-1)):t0;

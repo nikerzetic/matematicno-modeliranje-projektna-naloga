@@ -12,13 +12,14 @@ function simulacija_potovanja(b,m,zanka,hitrost)
 % 
 %   See also NARAVNI_PARAMETER, PLOTBEZIER, DOLZINABEZIER, DECASTELJAU
 
-switch nargin
-    case 3
-        hitrost = 0.01;
-    case 2
+if nargin < 4
+    hitrost = 0.01;
+    if nargin < 3
         zanka = false;
-    case 1
-        m = 100;
+    end
+        if nargin < 2
+            m = 100;
+        end
 end
 
 % Potrebna funkcija za izracun tock pri naravni parametrizaciji
