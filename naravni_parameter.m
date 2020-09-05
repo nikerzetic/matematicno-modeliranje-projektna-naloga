@@ -1,8 +1,8 @@
-function s = naravni_parameter(b,m)
+function [s,d] = naravni_parameter(b,m)
 % NARAVNI_PARAMETER    Naravna parametrizacija Bezierjeve krivulje.
-%   NARAVNI_PARAMETER(b,m) vrne vektor ekvidistancnih tock S, ki ustrezajo
-%   naravni parametrizaciji Bezierjeve krivulje b. Parameter m doloca
-%   stevilo korakov in je enak dolzini s.
+%   NARAVNI_PARAMETER(b,m) vrne vektor ekvidistancnih tock s, ki ustrezajo
+%   naravni parametrizaciji Bezierjeve krivulje b, in razdaljo med tockami.
+%   Parameter m doloca stevilo korakov in je enak dolzini s.
 % 
 %   Za izracun dolzine Bezierjeve krivulje NARAVNI_PARAMETER uporablja
 %   funkcijo dolzinaBezier na parametrih b in 10*m. Tocke naravne

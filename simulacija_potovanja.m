@@ -23,17 +23,20 @@ if nargin < 4
 end
 
 % Potrebna funkcija za izracun tock pri naravni parametrizaciji
-s = naravni_parameter(b,m);
+[s,d] = naravni_parameter(b,m);
 S = [b(:,1) zeros(2,m-2) b(:,end)];
 for i = 2:(m-1)
     S(:,i) = deCasteljau(b,s(i));
 end
+
+U = ukrivljenosti(S,d);
 
 for i = 1:m
     hold off;
     plotBezier(b);
     hold on;
     scatter(S(1,i),S(2,i));
+    U(i)
     pause(hitrost);
 end
 
@@ -43,6 +46,7 @@ while zanka
         plotBezier(b);
         hold on;
         scatter(S(1,i),S(2,i));
+        U(i)
         pause(hitrost);
     end
 end
