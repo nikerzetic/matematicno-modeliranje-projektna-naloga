@@ -34,8 +34,7 @@ if naravna_parametrizacija
     for i = 2:(m-1)
         S(:,i) = deCasteljau(b,s(i));
     end
-
-    u = ukrivljenosti(S,d);
+    u = ukrivljenosti(s,b,d);
 else
     s = 0:(1/(m-1)):1;
     S = [b(:,1) zeros(2,m-2) b(:,end)];

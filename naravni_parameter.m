@@ -21,7 +21,7 @@ s = zeros(m,1);
 for i = 2:(m-1)
     
     f = @(t) abs((i-1)*d - dolzinaBezier(b,m,t)); % m v vlogi N
-    s(i) = fminsearch(f,1);
+    s(i) = fminbnd(f,0,1);
     
 end
 

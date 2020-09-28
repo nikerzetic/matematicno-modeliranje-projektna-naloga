@@ -1,26 +1,23 @@
-function u = ukrivljenosti(S,d)
+function u = ukrivljenosti(s,b,d)
 % UKRIVLJENOSTI    Izracuna ukrivljenosti Bezierjeve krivulje.
-%   UKRIVLJENOSTI(S) izracuna vektor ukrivljenosti u Bezierjeve krivulje
+%   UKRIVLJENOSTI(S) izracuna vektor ukrivljenosti u Bezierjeve krivulje b
 %   pri naravni parametrizaciji S. Parameter d je razdalja med sosednjima 
 %   tockama. Drugi odvod aproksimira s sosednjima tockama na sledec naci:
 % 
-%       r''(s(i)) = (r(s(i+1)) - 2r(s(i)) + r(s(i-1))) / d^2
+%       r''(s(i)) = (r(s(i)+h) - 2r(s(i)) + r(s(i)-h)) / h^2
 % 
-%   V krajiscih za predhodnjo ali naslednjo tocko uporabi dvakrat isto
-%   tocko. Primer zacetne tocke:
-% 
-%       r''(s(i)) = (r(s(1)) - 2r(s(0)) + r(s(0))) / d^2
+%   V krajiscih privzamemo, da je odvod enak kot v sosednji tocki. Pri tem 
+%   je h enak d/1000.
 
-m = size(S,2);
+m = length(s);
 u = zeros(m,1);
-u(1) = norm(S(:,2) - 2.*S(:,1) + S(:,1))/d/d;
+h = d/1000;
 
 for i = 2:m-1
-    
-     u(i) = norm(S(:,i+1) - 2.*S(:,i) + S(:,i-1))/d/d;
-     
+     u(i) = norm(deCasteljau(b,s(i)+h) - 2*deCasteljau(b,s(i)) + deCasteljau(b,s(i)-h))/h/h;
 end
 
-u(m) =  norm(S(:,m) - 2.*S(:,m) + S(:,m-1))/d/d;
+u(1) = u(2);
+u(m) =  u(m-1);
 
 end
