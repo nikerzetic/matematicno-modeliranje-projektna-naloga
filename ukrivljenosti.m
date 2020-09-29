@@ -1,7 +1,7 @@
 function u = ukrivljenosti(s,b,d)
 % UKRIVLJENOSTI    Izracuna ukrivljenosti Bezierjeve krivulje.
-%   UKRIVLJENOSTI(S) izracuna vektor ukrivljenosti u Bezierjeve krivulje b
-%   pri naravni parametrizaciji S. Parameter d je razdalja med sosednjima 
+%   UKRIVLJENOSTI(s,b,d) izracuna vektor ukrivljenosti u Bezierjeve krivulje b
+%   pri ekvidistancni parametrizaciji s. Parameter d je razdalja med sosednjima 
 %   tockama. Drugi in drugi odvod aproksimira s sosednjima tockama na 
 %   sledec naci:
 % 
@@ -14,7 +14,7 @@ function u = ukrivljenosti(s,b,d)
 
 m = length(s);
 u = zeros(m,1);
-h = d/1000;
+h = d/100;
 
 for i = 2:m-1
     dbi = [(deCasteljau(b,s(i)+h) - deCasteljau(b,s(i)-h))/2/h;0];

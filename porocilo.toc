@@ -1,14 +1,15 @@
 \babel@toc {slovene}{}
-\contentsline {section}{\numberline {1}Matematično ozadje}{1}%
-\contentsline {subsection}{\numberline {1.1}B\'{e}zierjeve krivulje}{1}%
+\contentsline {section}{\numberline {1}Matematično ozadje}{2}%
+\contentsline {subsection}{\numberline {1.1}B\'{e}zierjeve krivulje}{2}%
 \contentsline {subsubsection}{\numberline {1.1.1}De Casteljaujev algoritem}{2}%
 \contentsline {subsubsection}{\numberline {1.1.2}Odvod B\'{e}zierjeve krivulje}{2}%
 \contentsline {subsection}{\numberline {1.2}Fleksijska ukrivljenost}{2}%
 \contentsline {section}{\numberline {2}Reševanje}{3}%
-\contentsline {subsection}{\numberline {2.1}Splošna rešitev}{3}%
-\contentsline {subsubsection}{\numberline {2.1.1}Implementacija}{3}%
-\contentsline {subsection}{\numberline {2.2}Premikanje z enakomerno hitrostjo}{3}%
-\contentsline {subsubsection}{\numberline {2.2.1}Ekvidistančna parametrizacija}{3}%
-\contentsline {subsubsection}{\numberline {2.2.2}Aproksimacija drugega odvoda}{3}%
-\contentsline {subsubsection}{\numberline {2.2.3}Implementacija}{3}%
-\contentsline {subsection}{\numberline {2.3}Primerjava rešitve}{3}%
+\contentsline {subsection}{\numberline {2.1}Splošna rešitev}{4}%
+\contentsline {subsubsection}{\numberline {2.1.1}Implementacija v Matlabu}{4}%
+\contentsline {subsection}{\numberline {2.2}Premikanje z enakomerno hitrostjo}{4}%
+\contentsline {subsubsection}{\numberline {2.2.1}Ekvidistančna parametrizacija}{5}%
+\contentsline {subsubsection}{\numberline {2.2.2}Aproksimacija drugega odvoda}{6}%
+\contentsline {subsubsection}{\numberline {2.2.3}Implementacija v Matlabu}{6}%
+\contentsline {section}{\numberline {3}Zaključek}{7}%
+\contentsline {section}{\numberline {4}Viri}{7}%

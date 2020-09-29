@@ -1,24 +1,24 @@
-function simulacija_potovanja(b,m,naravna_parametrizacija,zanka,hitrost)
+function simulacija_potovanja(b,m,ekvidistancna_parametrizacija,zanka,hitrost)
 % SIMULACIJA_POTOVANJA    Simulacija potovanja tocke po Bezierjevi krivulji.
 %   SIMULACIJA_POTOVANJA(b,m,zanka) simulira potovanje tocke po Bezierjevi
 %   krivulji b stopnje n. Tocka po krivulji potuje v m enako dolgih korakih.
 %   Vzporedno s tem program izrisuje ukrivljenost krivulje. Parameter zanka
-%   doloca, ali se animacija ponavlja, naravna_parametrizacija ali 
-%   parametriziramo z naravno parametrizacijo. Privzeto sta parametra zanka
-%   in naravna_parametrizacija nastavljena na false, parameter m pa na 100. 
+%   doloca, ali se animacija ponavlja, ekvidistancna_parametrizacija ali 
+%   parametriziramo z enako oddaljenimi tockami. Privzeto sta parametra zanka
+%   in ekvidistancna_parametrizacija nastavljena na false, parameter m pa na 100. 
 %   Zanko prekinemo z ukazom Ctrl + C v konzoli.
 % 
 %   Argument hitrost doloca, kako hitro se tocka premika po krivulji.
 %   Predstavlja cas med izrisom vsake slicice. Privzeto je nastavljena na 0.01.
 % 
-%   See also NARAVNI_PARAMETER, PLOTBEZIER, DOLZINABEZIER, DECASTELJAU
+%   See also EKVIDISTANCNI_PARAMETER, PLOTBEZIER, DOLZINABEZIER, DECASTELJAU
 
 if nargin < 5
     hitrost = 0.01;
     if nargin < 4
         zanka = false;
         if nargin < 3
-            naravna_parametrizacija = false;
+            ekvidistancna_parametrizacija = false;
             if nargin < 2
                 m = 100;
             end
@@ -28,8 +28,8 @@ end
 
 s = 0;
 
-if naravna_parametrizacija
-    [s,d] = naravni_parameter(b,m);
+if ekvidistancna_parametrizacija
+    [s,d] = ekvidistancni_parameter(b,m);
     S = [b(:,1) zeros(2,m-2) b(:,end)];
     for i = 2:(m-1)
         S(:,i) = deCasteljau(b,s(i));
