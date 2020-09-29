@@ -1,0 +1,83 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[slovene]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amsmath,amsfonts}
+\usepackage[ruled,vlined]{algorithm2e}
+\pagestyle{empty}
+\renewcommand{\algorithmcfname}{Algoritem}
+\SetKwInput{KwData}{Vhod}
+\SetKwInput{KwResult}{Izhod}
+
+\title{\textbf{\huge Simulacija premikanja točke po Bezierjevi krivulji}
+	
+	\Large \it Poročilo o projektni nalogi pri predmetu Matematično modeliranje}
+\author{Nik Erzetič}
+
+\begin{document}
+	
+	\maketitle
+	
+	\tableofcontents
+	
+	\section{Matematično ozadje}
+	
+	\subsection{B\'{e}zierjeve krivulje}
+	
+	B\'{e}zierjeve krivulje so parametrične krivulje, določene z zaporedjem kontrolnih točk. Ime nosijo po Pierreu B\'ezierju, ki jih je v drugi polovici dvajsetega stoletja razvil kot orodje za oblikovanje karoserij Renaultjevih avtomobilov.
+	
+	\subsubsection{De Casteljaujev algoritem}
+	
+	Osnovno orodje za delo z B\'ezierjevimi krivulji je De Casteljaujev algoritem. Le ta vsaki vrednosti $t$ iz intervala $[0,1]$ (ali $\mathbb{R}$) priredi točko na krivulju. To stori z zaporednim deljenjem stranic in zveznic med v prejšnjem koraku izračunanimi delilnimi točkami, v razmerju določenim s $t$. 
+	
+	\vspace{3mm}
+	\begin{algorithm}[H]
+		\KwData{$b_0,b_1,\ldots,b_n \in \mathbb{R}^d$, $t \in [0,1]$ (ali $t \in \mathbb{R}$)}
+		\KwResult{točka $b_0^n$ na B\'ezierjevi krivulji}
+		definiramo $b_j^0(t) = b_j$, $j=0,1,\ldots,n$
+		
+		\For{$k=2,3,\ldots,n$}{
+			\For{$i=0,1,\ldots,n-k$}{
+				$b_i^k=(1-t) \cdot b_i^{k-1} + t \cdot b_{i+1}^{k-1}$
+			}
+		}
+		\caption{De Casteljaujev algoritem}
+	\end{algorithm}
+	\vspace{3mm}
+	
+	V Matlabu implementacije ne izgleda tako, a o tem bom več napisal v poznejšem razdelku.
+	
+	\subsubsection{Odvod B\'{e}zierjeve krivulje}
+	
+	Odvod B\'ezierjeve krivulje izračunamo po sledeči fomuli:
+	$$
+	\frac{\mathrm{d}^r b^n}{\mathrm{d}t^r} = n (n-1) \ldots (n - r + 1) \sum_{j=0}^{n-r} \Delta^r b_j B_j^{n-r}(t),
+	$$
+	kjer je $\Delta b_j = b_{j+1} - b_j$ in $\Delta^r b_j = \Delta (\Delta^{r-1} b_j)$.
+	
+	\subsection{Fleksijska ukrivljenost}
+	
+	Fleksijska ukrviljenost $\kappa$ meri upognjenost krivulje v točki. Definirana je kot drugi odvod krajevnega vektorja pri naravni parametrizaciji in je enaka obratni vrednosti radija pritisnjene krožnice v tej točki. Za poljubno parametrizacijo $r(t)$ jo izračunamo z naslednjo formulo:
+	
+	$$
+	\kappa(t) = \frac{\mid r'(t) \times r''(t) \mid}{\mid\mid r'(t) \mid\mid ^3}.
+	$$
+	
+	\section{Reševanje}
+	
+	\subsection{Splošna rešitev}
+	
+	\subsubsection{Implementacija}
+	
+	\subsection{Premikanje z enakomerno hitrostjo}
+	
+	\subsubsection{Ekvidistančna parametrizacija}
+	
+	\subsubsection{Aproksimacija drugega odvoda}
+	
+	\subsubsection{Implementacija}
+	
+	\subsection{Primerjava rešitve}
+	
+\end{document}
